@@ -1,14 +1,54 @@
 {
-    "assets": [
-        {}
-    ],
-    "engine": [
-        {
-            "images": {
-                "logo": {
-                    "backgroundImage": "/assets/img/engine-logo.png"
-                }
+    "assets": {},
+    "engine": {
+        "image": {
+            "logo-engine-img": {
+                "backgroundImage": "url(/assets/img/engine-logo.png)",
+                "id": "logo-engine-img",
+                "position": "relative",
+                "width": "400px",
+                "height": "400px",
+                "opacity": "0",
+                "backgroundPosition": "center",
+                "backgroundSize": "contain",
+                "backgroundRepeat": "no-repeat",
+                "margin": "auto",
+                "top": "30%"
+            },
+            "logo-cvm": {
+                "backgroundImage": "url(/assets/img/logocvm.png)",
+                "id": "logo-cvm",
+                "position": "relative",
+                "width": "400px",
+                "height": "400px",
+                "opacity": "0",
+                "backgroundPosition": "center",
+                "backgroundSize": "contain",
+                "backgroundRepeat": "no-repeat",
+                "margin": "auto",
+                "top": "30%"
+            },
+            "game-logo": {
+                "backgroundImage": "url(/assets/img/game-logo.png)",
+                "id": "logo-cvm",
+                "position": "relative",
+                "width": "400px",
+                "height": "400px",
+                "opacity": "0",
+                "backgroundPosition": "center",
+                "backgroundSize": "contain",
+                "backgroundRepeat": "no-repeat",
+                "margin": "auto",
+                "top": "30%"
+            }
+        },
+        "elements": {
+            "menu-container": {
+                "id": "menu-container",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "blue"
             }
         }
-    ]
+    }
 }

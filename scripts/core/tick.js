@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             GAME.setWindowFrame();
             // Create and append the FPS container to #game-frame
 
-            GAME.initialLoad()
+            GAME.load();
 
 
             const tick = (now) => {

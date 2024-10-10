@@ -13,6 +13,11 @@ export class Game {
         console.log(this.node);
     }
 
+    setWindowFrameLiveRefresh() {
+        this.node.style.width = window.innerWidth + "px";
+        this.node.style.height = window.innerHeight + "px";
+    }
+
     setContext(newContext) {
         this.context = newContext;
     }
@@ -23,11 +28,13 @@ export class Game {
 
     tick(now) {
         utils.utilitaires.fpsTick(now);
+        this.setWindowFrameLiveRefresh();
     }
 
-    initialLoad() {
+    load = () => {
         utils.utilitaires.compteurFps(); //Pour le fps
-        setTimeout(utils.animer.fadeBG(this.node, 0.5, "ease-out", "black"), 0.5); //fade screen to black
-
+        utils.animer.ui.mainIntroFadeAsync();
     }
+
+
 }

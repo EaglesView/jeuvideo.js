@@ -1,10 +1,13 @@
 // Utility functions, such as collision detection
 import { ANIMATIONS } from "/scripts/systems/animations.js";
+import { ASSETMGR } from "/scripts/core/assets.js";
 
 // Start the game loop with FPS display
 let lastFrameTime = performance.now();
 let frameCount = 0;
 let fps = 0;
+
+
 
 export const utils = {
     collisions: {
@@ -36,6 +39,31 @@ export const utils = {
         },
         fadeOpa: (node, time, easingStyle, newOpa) => {
             ANIMATIONS["tweening"].fade(node, "opacity", time, easingStyle, newOpa);
+        },
+        "ui": {
+            fadeInOutAsync: async (id, uptime) => {
+                const delay = ms => new Promise(res => setTimeout(res, ms));
+                utils.controlleur.ajoutAsset("engine", "image", id, "#game-frame");
+                setTimeout(utils.animer.fadeBG(document.querySelector("#game-frame"), 0.5, "ease-out", "black"), 1.5); //fade screen to black
+                await delay(200);
+                setTimeout(utils.animer.fadeOpa(document.querySelector(`#${id}`), 1.0, "ease-in", 1), 1.5);
+                await delay(uptime);
+                setTimeout(utils.animer.fadeOpa(document.querySelector(`#${id}`), 1.0, "ease-in", 0), 1.5);
+                await delay(1200);
+                document.getElementById(id).remove();
+            },
+            mainIntroFadeAsync: async () => {
+                await utils.animer.ui.fadeInOutAsync("logo-engine-img", 2000);
+                await utils.animer.ui.fadeInOutAsync("logo-cvm", 2000);
+                utils.controlleur.ajoutAsset("engine", "elements", "menu-container", "#game-frame");
+
+            }
+        }
+
+    },
+    controlleur: {
+        ajoutAsset: (source, type, name, parent) => {
+            ASSETMGR.methods.addAsset(source, type, name, parent);
         }
     },
     utilitaires: {
