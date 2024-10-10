@@ -21,12 +21,13 @@ export class Game {
         return this.context;
     }
 
-    tick() {
-
+    tick(now) {
+        utils.utilitaires.fpsTick(now);
     }
 
     initialLoad() {
-        utils.animer.fade(this.node, 0.5, "ease-out", "black"); //fade screen to black
+        utils.utilitaires.compteurFps(); //Pour le fps
+        utils.animer.fadeBG(this.node, 0.5, "ease-out", "black"); //fade screen to black
 
 
 

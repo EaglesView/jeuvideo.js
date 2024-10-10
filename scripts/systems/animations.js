@@ -1,10 +1,11 @@
 export const ANIMATIONS = {
     "tweening": {
-        fade: (node, time, easingStyle, newColor) => {
+        fade: (node, property, time, easingStyle, newValue) => {
             node.style.transition = `background-color ${time}s ${easingStyle}`;
-            node.style.backgroundColor = newColor;
+            property = newValue;
 
-        }
+        },
+
     },
     "curves": {
 
