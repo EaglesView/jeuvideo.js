@@ -1,0 +1,42 @@
+{
+    "defaultEnn": [
+        {
+            "id": null,
+            "class": null,
+            "name": null,
+            "health": 50,
+            "mana": 50,
+            "level": 0,
+            "stats": {
+                "dexterity": 1,
+                "strength": 1,
+                "intelligence": 1
+            },
+            "inventory": []
+        }
+    ],
+    "ennemy1": [
+        {
+            "id": 1,
+            "class": "meelee",
+            "name": "small skelton",
+            "health": 10,
+            "mana": 0,
+            "level": 1,
+            "stats": {
+                "dexterity": 1,
+                "strength": 1,
+                "intelligence": 0
+            },
+            "inventory": [
+                {
+                    "name": "bag of money",
+                    "class": "money",
+                    "classProperties": {
+                        "value": 100
+                    }
+                }
+            ]
+        }
+    ]
+}

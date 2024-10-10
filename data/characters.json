@@ -1,0 +1,18 @@
+{
+    "defaultChar": [
+        {
+            "id": null,
+            "class": null,
+            "name": null,
+            "health": 50,
+            "mana": 50,
+            "level": 0,
+            "stats": {
+                "dexterity": 1,
+                "strength": 1,
+                "intelligence": 1
+            },
+            "inventory": []
+        }
+    ]
+}
