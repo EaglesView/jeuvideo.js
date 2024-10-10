@@ -27,9 +27,7 @@ export class Game {
 
     initialLoad() {
         utils.utilitaires.compteurFps(); //Pour le fps
-        utils.animer.fadeBG(this.node, 0.5, "ease-out", "black"); //fade screen to black
-
-
+        setTimeout(utils.animer.fadeBG(this.node, 0.5, "ease-out", "black"), 0.5); //fade screen to black
 
     }
 }

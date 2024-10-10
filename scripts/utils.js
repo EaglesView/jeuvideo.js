@@ -32,10 +32,10 @@ export const utils = {
     },
     animer: {
         fadeBG: (node, time, easingStyle, newColor) => {
-            ANIMATIONS["tweening"].fade(node, node.style.backgroundColor, time, easingStyle, newColor);
+            ANIMATIONS["tweening"].fade(node, "backgroundColor", time, easingStyle, newColor);
         },
         fadeOpa: (node, time, easingStyle, newOpa) => {
-            ANIMATIONS["tweening"].fade(node, node.style.opacity, time, easingStyle, newOpa);
+            ANIMATIONS["tweening"].fade(node, "opacity", time, easingStyle, newOpa);
         }
     },
     utilitaires: {
