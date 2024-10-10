@@ -1,0 +1,14 @@
+{
+    "assets": [
+        {}
+    ],
+    "engine": [
+        {
+            "images": {
+                "logo": {
+                    "backgroundImage": "/assets/img/engine-logo.png"
+                }
+            }
+        }
+    ]
+}
