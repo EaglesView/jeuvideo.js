@@ -23,6 +23,11 @@ export const ASSETMGR = {
                 });
             }
 
+            // Add innerText if present
+            if (asset.innerText) {
+                fetchedAsset.innerText = asset.innerText;
+            }
+
             // Assign ID and append to parent
             fetchedAsset.id = asset.id;
             document.querySelector(parent).appendChild(fetchedAsset);

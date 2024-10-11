@@ -4,9 +4,12 @@
             "type": "button",
             "styles": {
                 "width": "250px",
-                "height": "96px",
-                "backgroundColor": "blue",
-                "color": "white"
+                "height": "64px",
+                "borderRadius": "12px",
+                "backgroundColor": "darkred",
+                "color": "orange",
+                "font": "2rem black",
+                "margin": "5px 0px"
             }
         },
         "img-div": {
@@ -47,7 +50,18 @@
                 },
                 {
                     "template": "button-primary",
-                    "id": "play-button"
+                    "id": "play-button",
+                    "innerText": "Jouer"
+                },
+                {
+                    "template": "button-primary",
+                    "id": "tutorial-button",
+                    "innerText": "Instructions"
+                },
+                {
+                    "template": "button-primary",
+                    "id": "settings-button",
+                    "innerText": "Paramètres"
                 }
             ]
         },

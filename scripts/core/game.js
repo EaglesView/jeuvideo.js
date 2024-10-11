@@ -37,9 +37,11 @@ export class Game {
 
     //fonction de chargement du jeu
     //certaines animations sont en css et ne respectent pas le tick
-    load = () => {
+    load = async () => {
         utils.utilitaires.compteurFps(); //Pour le fps
-        utils.animer.ui.mainIntroFadeAsync();
+        await utils.animer.ui.mainIntroFadeAsync();
+        this.context = "menu";
+        console.log(this.context);
     }
 
 
