@@ -9,15 +9,14 @@
                 "color": "white"
             }
         },
-        "game-logo": {
+        "img-div": {
             "type": "div",
             "styles": {
-                "backgroundImage": "url(/assets/img/game-logo.png)",
-                "width": "400px",
-                "height": "400px",
                 "backgroundPosition": "center",
                 "backgroundSize": "contain",
-                "backgroundRepeat": "no-repeat"
+                "backgroundRepeat": "no-repeat",
+                "margin": "auto",
+                "paddingTop": "40%"
             }
         }
     },
@@ -36,14 +35,41 @@
             },
             "children": [
                 {
-                    "template": "game-logo",
-                    "id": "game-logo-1"
+                    "template": "img-div",
+                    "id": "game-logo-1",
+                    "styles": {
+                        "backgroundImage": "url(/assets/img/game-logo.png)",
+                        "width": "400px",
+                        "height": "400px",
+                        "margin": "0",
+                        "paddingTop": "0"
+                    }
                 },
                 {
                     "template": "button-primary",
                     "id": "play-button"
                 }
             ]
+        },
+        {
+            "id": "engine-logo",
+            "template": "img-div",
+            "styles": {
+                "backgroundImage": "url(/assets/img/engine-logo.png)",
+                "width": "400px",
+                "height": "400px"
+            },
+            "children": []
+        },
+        {
+            "id": "cvm-logo",
+            "template": "img-div",
+            "styles": {
+                "backgroundImage": "url(/assets/img/cvm-logo.png)",
+                "width": "400px",
+                "height": "400px"
+            },
+            "children": []
         }
     ]
 }

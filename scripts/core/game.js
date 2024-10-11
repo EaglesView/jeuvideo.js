@@ -14,7 +14,6 @@ export class Game {
     setWindowFrame() {
         this.node.style.width = this.resolution.x + "px";
         this.node.style.height = this.resolution.y + "px";
-        console.log(this.node);
     }
     //Set la taille en temps réel selon la taille de fenêtre
     setWindowFrameLiveRefresh() {

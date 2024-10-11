@@ -2,7 +2,6 @@ export const ASSETMGR = {
     methods: {
         addFetchedAsset: function (asset, parent, templates) {
             let fetchedAsset;
-
             // If a template is provided, fetch the template details
             if (asset.template && templates[asset.template]) {
                 const template = templates[asset.template];
@@ -45,7 +44,6 @@ export const ASSETMGR = {
                     // Fetch templates and asset by name
                     const templates = data.templates;
                     const dataFetched = data.assets.find(asset => asset.id === name);
-
                     // If asset is found, add it to the parent
                     if (dataFetched) {
                         ASSETMGR.methods.addFetchedAsset(dataFetched, parent, templates);
