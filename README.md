@@ -24,3 +24,11 @@ Contient les librairies d'animation, d'effets et d'éléments ui en jeu. **Plus 
 
 - La div de jeu possede l'id "game-frame".
 - Tout les autres div containers ont "nom-container" comme nomenclature
+
+## échéanciers et fonctionnalités à ajouter
+- Ajout d'animations de base
+- Ajout d'animations de sprites
+- Ajout de chargement et déchargement d'objet
+- Ajout de déchargement d'objet en gardant leur positions (offloading)
+- Ajout de composantes ui (boutons, checkbox, slider)
+- Ajout de gestion d'input
