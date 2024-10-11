@@ -41,9 +41,9 @@ export const utils = {
             ANIMATIONS["tweening"].fade(node, "opacity", time, easingStyle, newOpa);
         },
         "ui": {
-            fadeInOutAsync: async (id, uptime) => {
+            fadeInOutAsync: async (id, uptime) => { //permet de fade une image dans l'ecran. la fonction s'occupe de detruire lobjet egalement
                 const delay = ms => new Promise(res => setTimeout(res, ms));
-                utils.controlleur.ajoutAsset("engine", "image", id, "#game-frame");
+                utils.controlleur.ajoutAsset("assets", id, "#game-frame");
                 setTimeout(utils.animer.fadeBG(document.querySelector("#game-frame"), 0.5, "ease-out", "black"), 1.5); //fade screen to black
                 await delay(200);
                 setTimeout(utils.animer.fadeOpa(document.querySelector(`#${id}`), 1.0, "ease-in", 1), 1.5);
@@ -53,17 +53,19 @@ export const utils = {
                 document.getElementById(id).remove();
             },
             mainIntroFadeAsync: async () => {
-                await utils.animer.ui.fadeInOutAsync("logo-engine-img", 2000);
-                await utils.animer.ui.fadeInOutAsync("logo-cvm", 2000);
-                utils.controlleur.ajoutAsset("engine", "elements", "menu-container", "#game-frame");
+                //await utils.animer.ui.fadeInOutAsync("logo-engine-img", 2000);
+                //await utils.animer.ui.fadeInOutAsync("logo-cvm", 2000);
 
+                // Add the menu-container (no "engine" needed)
+                utils.controlleur.ajoutAsset("menu-container", "#game-frame");
             }
+
         }
 
     },
     controlleur: {
-        ajoutAsset: (source, type, name, parent) => {
-            ASSETMGR.methods.addAsset(source, type, name, parent);
+        ajoutAsset: (name, parent) => {
+            ASSETMGR.methods.addAsset(name, parent);
         }
     },
     utilitaires: {

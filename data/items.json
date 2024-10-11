@@ -1,72 +1,49 @@
 {
-    "assets": {},
-    "engine": {
-        "image": {
-            "logo-engine-img": {
-                "backgroundImage": "url(/assets/img/engine-logo.png)",
-                "id": "logo-engine-img",
-                "typeOf": "div",
-                "position": "relative",
-                "width": "400px",
-                "height": "400px",
-                "opacity": "0",
-                "backgroundPosition": "center",
-                "backgroundSize": "contain",
-                "backgroundRepeat": "no-repeat",
-                "margin": "auto",
-                "top": "30%",
-                "children": []
-            },
-            "logo-cvm": {
-                "backgroundImage": "url(/assets/img/logocvm.png)",
-                "id": "logo-cvm",
-                "typeOf": "div",
-                "position": "relative",
-                "width": "400px",
-                "height": "400px",
-                "opacity": "0",
-                "backgroundPosition": "center",
-                "backgroundSize": "contain",
-                "backgroundRepeat": "no-repeat",
-                "margin": "auto",
-                "top": "30%",
-                "children": []
+    "templates": {
+        "button-primary": {
+            "type": "button",
+            "styles": {
+                "width": "250px",
+                "height": "96px",
+                "backgroundColor": "blue",
+                "color": "white"
             }
         },
-        "elements": {
-            "menu-container": {
-                "id": "menu-container",
-                "typeOf": "div",
+        "game-logo": {
+            "type": "div",
+            "styles": {
+                "backgroundImage": "url(/assets/img/game-logo.png)",
+                "width": "400px",
+                "height": "400px",
+                "backgroundPosition": "center",
+                "backgroundSize": "contain",
+                "backgroundRepeat": "no-repeat"
+            }
+        }
+    },
+    "assets": [
+        {
+            "id": "menu-container",
+            "type": "div",
+            "styles": {
                 "width": "100%",
                 "height": "100%",
-                "backgroundColor": "blue",
+                "backgroundColor": "black",
                 "display": "flex",
                 "flexDirection": "column",
                 "alignItems": "center",
-                "justifyContent": "flex-start",
-                "children": {
-                    "game-logo": {
-                        "backgroundImage": "url(/assets/img/game-logo.png)",
-                        "id": "logo-cvm",
-                        "typeOf": "div",
-                        "width": "400px",
-                        "height": "400px",
-                        "opacity": "1",
-                        "backgroundPosition": "center",
-                        "backgroundSize": "contain",
-                        "backgroundRepeat": "no-repeat",
-                        "margin": "0",
-                        "top": "30%",
-                        "children": {}
-                    },
-                    "play-button": {
-                        "id": "play-button",
-                        "typeOf": "Button",
-                        "width": "250px",
-                        "height": "96px"
-                    }
+                "justifyContent": "flex-start"
+            },
+            "children": [
+                {
+                    "template": "game-logo",
+                    "id": "game-logo-1"
+                },
+                {
+                    "template": "button-primary",
+                    "id": "play-button"
                 }
-            }
+            ]
         }
-    }
+    ]
 }

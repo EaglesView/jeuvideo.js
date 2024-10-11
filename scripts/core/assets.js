@@ -1,37 +1,55 @@
 export const ASSETMGR = {
     methods: {
-        addFetchedAsset: function (asset, parent) {
-            const fetchedAsset = document.createElement(asset.typeOf);
-            // Apply styles to the asset div
-            for (let style in asset) {
-                if (asset.hasOwnProperty(style) && style !== "children" && style !== "typeOf") {
-                    fetchedAsset.style[style] = asset[style];
-                }
+        addFetchedAsset: function (asset, parent, templates) {
+            let fetchedAsset;
+
+            // If a template is provided, fetch the template details
+            if (asset.template && templates[asset.template]) {
+                const template = templates[asset.template];
+                fetchedAsset = document.createElement(template.type);
+
+                // Apply template styles
+                Object.keys(template.styles).forEach(style => {
+                    fetchedAsset.style[style] = template.styles[style];
+                });
+            } else {
+                // Create the element from the asset itself
+                fetchedAsset = document.createElement(asset.type);
             }
 
-            // Set the asset's ID if provided
-            fetchedAsset.id = asset.id;
+            // Apply any specific styles or overrides in the asset itself
+            if (asset.styles) {
+                Object.keys(asset.styles).forEach(style => {
+                    fetchedAsset.style[style] = asset.styles[style];
+                });
+            }
 
-            // Append the asset to the parent element only once
+            // Assign ID and append to parent
+            fetchedAsset.id = asset.id;
             document.querySelector(parent).appendChild(fetchedAsset);
 
-            // Recursively add child assets if they exist
-            if (asset.children && Object.keys(asset.children).length > 0) {
-                for (let childKey in asset.children) {
-                    if (asset.children.hasOwnProperty(childKey)) {
-                        const child = asset.children[childKey];
-                        this.addFetchedAsset(child, `#${fetchedAsset.id}`);
-                    }
-                }
+            // Recursively handle children
+            if (asset.children && asset.children.length > 0) {
+                asset.children.forEach(child => {
+                    this.addFetchedAsset(child, `#${fetchedAsset.id}`, templates);
+                });
             }
         },
 
-        addAsset: (source, type, name, parent) => {
+        // Revised `addAsset` to fetch and apply templates
+        addAsset: (name, parent) => {
+            // Fetch the JSON data
             fetch('/data/items.json')
                 .then(response => response.json())
                 .then(data => {
-                    const dataFetched = data[source][type][name];
-                    ASSETMGR.methods.addFetchedAsset(dataFetched, parent);
+                    // Fetch templates and asset by name
+                    const templates = data.templates;
+                    const dataFetched = data.assets.find(asset => asset.id === name);
+
+                    // If asset is found, add it to the parent
+                    if (dataFetched) {
+                        ASSETMGR.methods.addFetchedAsset(dataFetched, parent, templates);
+                    }
                 })
                 .catch(error => console.error('Error loading asset:', error));
         }
